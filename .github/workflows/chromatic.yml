@@ -23,6 +23,6 @@ jobs:
         # Chromatic GitHub Action options
         with:
           storybookBuildDir: storybook-static
-          workingDir: ./
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
