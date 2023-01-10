@@ -20,7 +20,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
             />
             <path
               d="M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z"
-              fill= "#FFFF00"
+              fill= "#964B00"
             />
           </g>
         </svg>
@@ -30,7 +30,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
         {user ? (
           <>
             <span className="welcome">
-              Welcome, <b>{user.name}</b>!
+              What's up!, <b>{user.name}</b>!
             </span>
             <Button size="small" onClick={onLogout} label="Log out" />
           </>
