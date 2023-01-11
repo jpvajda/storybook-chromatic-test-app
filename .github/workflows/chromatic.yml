@@ -6,6 +6,10 @@ name: 'Chromatic'
 # Event for the workflow
 on: push
 
+# Sets what directory to run from
+defaults:
+  run:
+    working-directory: storybook
 # List of jobs
 jobs:
   chromatic-deployment:
@@ -22,7 +26,7 @@ jobs:
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
-          workingDir: ./storybook
+          storybookBaseDir: ./storybook
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
