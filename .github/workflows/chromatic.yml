@@ -6,21 +6,21 @@ name: 'Chromatic'
 # Event for the workflow
 on: push
 
-# Sets what directory to run from
-defaults:
-  run:
-    working-directory: ./storybook
+
 # List of jobs
 jobs:
   chromatic-deployment:
     # Operating System
     runs-on: ubuntu-latest
     # Job steps
+
     steps:
       - uses: actions/checkout@v1
       - name: Install dependencies
         # 👇 Install dependencies with the same package manager used in the project (replace it as needed) e.g. yarn, npm, pnpm
         run: yarn
+        # Sets what directory to run from
+        working-directory: ./storybook
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
         uses: chromaui/action@v1
