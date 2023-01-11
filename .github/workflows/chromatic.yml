@@ -9,7 +9,7 @@ on: push
 # Sets what directory to run from
 defaults:
   run:
-    working-directory: storybook
+    working-directory: ./storybook
 # List of jobs
 jobs:
   chromatic-deployment:
