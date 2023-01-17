@@ -6,11 +6,6 @@ name: 'Chromatic'
 # Event for the workflow
 on: push
 
-# Sets what directory to run from
-defaults:
-  run:
-    working-directory: storybook
-
 # List of jobs
 jobs:
   chromatic-deployment:
