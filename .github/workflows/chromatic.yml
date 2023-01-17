@@ -6,6 +6,10 @@ name: 'Chromatic'
 # Event for the workflow
 on: push
 
+# Sets what directory to run from
+defaults:
+  run:
+    working-directory: storybook
 
 # List of jobs
 jobs:
@@ -13,20 +17,20 @@ jobs:
     # Operating System
     runs-on: ubuntu-latest
     # Job steps
-
     steps:
       - uses: actions/checkout@v1
       - name: Install dependencies
         # 👇 Install dependencies with the same package manager used in the project (replace it as needed) e.g. yarn, npm, pnpm
         run: yarn
-        # Sets what directory to run from
-        working-directory: ./storybook
+        # 👇 Builds your Storybook as part of the workflow
+      - name: Build Storybook
+        run: yarn build-storybook
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
-          storybookBaseDir: ./storybook
+          storybookBuildDir: storybook-static
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
